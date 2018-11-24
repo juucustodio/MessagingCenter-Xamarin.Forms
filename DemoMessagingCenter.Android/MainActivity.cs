@@ -1,11 +1,8 @@
-﻿using System;
-
-using Android.App;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
+﻿using Android.App;
 using Android.Widget;
+using Android.Content.PM;
 using Android.OS;
+using Xamarin.Forms;
 
 namespace DemoMessagingCenter.Droid
 {
@@ -17,9 +14,19 @@ namespace DemoMessagingCenter.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
+
+            MessagingCenter.Subscribe<Message>(this, "AddItem", message => {
+                ShowAlert("Item adicionado");
+            });
+
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+        }
+
+        public void ShowAlert(string message)
+        {
+            Toast.MakeText(ApplicationContext, message, ToastLength.Long).Show();
         }
     }
 }

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:DemoMessagingCenter" 
-             x:Class="DemoMessagingCenter.MainPage">
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-               HorizontalOptions="Center" 
-               VerticalOptions="CenterAndExpand" />
-    </StackLayout>
-</ContentPage>
+             x:Class="DemoMessagingCenter.MainPage"
+             BarBackgroundColor="#2196F3"
+             BarTextColor="White"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             android:TabbedPage.ToolbarPlacement="Bottom">
+             
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem x:Name="ContItem" Text="0"/>
+    </TabbedPage.ToolbarItems>
+    
+    <local:AddPage Title="Add"/>
+    <local:ListPage Title="List"/>
+    
+</TabbedPage>
